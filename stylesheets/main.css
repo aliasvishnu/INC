@@ -1,0 +1,22 @@
+html,body{
+	background: #24495e; /*Nephritis*/
+}
+
+#board{
+	width: 700px;
+	height: 700px;
+	margin:100px auto;
+}
+.entry{
+	width: 200px; 
+	height: 200px;
+	float:left;
+	background-image: url('../images/xo.jpg');
+	background-position: -200px 0px;
+	border:1px dotted #f1c40f;
+	transition:0.3s all ease-out;
+}
+.clearFloat{
+	clear:both;
+	content:'';
+}
