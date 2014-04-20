@@ -51,7 +51,7 @@ public:
 				setValue('-', i, j);
 			}
 		}
-		choice.first = 0; choice.second = 0;
+		choice.first = 1; choice.second = 1;
 		strcpy(turn, "computer");
 		depth = 0;
 		mainBoard = 1;
@@ -68,9 +68,9 @@ public:
 		mainBoard = 0;
 
 		if(!strcmp(turn, "player")){
-			setValue('X', locX, locY);
-		}else{
 			setValue('O', locX, locY);
+		}else{
+			setValue('X', locX, locY);
 		}
 	}
 	void displayBoard(){
@@ -83,12 +83,9 @@ public:
 		}
 	}
 	void computerMove(){
-		if(getValue(1, 1) == '-'){
-			setValue('O', 1, 1)	;
-		}else{
-			minimax();
-		    setValue('O', choice.first, choice.second);
-		}
+		minimax();
+	    setValue('O', choice.first, choice.second);
+		
 	    depth += 1;		
 		displayBoard();
 		if(winner() == 1){
@@ -140,10 +137,10 @@ public:
 	}
 	int score(){
 		if(strcmp(turn, "player") && winner()){ //Meaning computer won
-			return (20 - depth);
+			return (10 - depth);
 		}	
 		else if(strcmp(turn, "computer") && winner()) {
-			return (depth - 20) ;
+			return (depth - 10) ;
 		}
 		else{ 
 			return 0;
